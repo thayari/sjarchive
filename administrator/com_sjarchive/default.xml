@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+
+     <field name="some_option" label="label" type="text" description="" value="1"/>
+
+</config>

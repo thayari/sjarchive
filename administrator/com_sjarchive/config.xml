@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset
+		name="page-options"
+		label="ARTICULUS.CONFIG.JOURNALTITLE"
+		>
+
+		<field
+			name="title_ru"
+			type="text"
+			label="RU"
+			description=""
+			default="Недвижимость: экономика, управление"
+		/>
+    
+    <field
+			name="title_en"
+			type="text"
+			label="EN"
+			description=""
+			default="Real estate: economics, management"
+		/>
+
+    <field
+			name="issn"
+			type="text"
+			label="ISSN"
+			description=""
+			default="2073-8412"
+		/>
+
+	</fieldset>
+
+  <fieldset
+    name="upload-path"
+    label="Upload path">
+    <field
+      name="archive_path"
+      type="text"
+      label="Archive path"
+      description=""
+      default="../media/com_sjarchive/issues">
+    </field>
+  </fieldset>
+
+</config>
