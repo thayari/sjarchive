@@ -80,7 +80,7 @@ $link = array('controller' => 'issue', 'task' => 'issue.download', 'year' => $is
 
 										<li style="display: inline" class="author" style="list-style-type: none;">
 
-											<?php $str = JFactory::getLanguage()->getTag() == 'ru-RU' ? $author->surname . ' ' . $author->lastname : $author->lastname . ' ' . $author->surname ?>
+											<?php $str = JFactory::getLanguage()->getTag() == 'ru-RU' ? $author->surname . ' ' . $author->firstname : $author->firstname . ' ' . $author->surname ?>
 											<?php if ($key <> count($article->authors) - 1) : ?>
 												<?php $str .= ','; ?>
 											<?php endif ?>

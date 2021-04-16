@@ -18,7 +18,7 @@ class archiveModelAuthor
 {
   public $authorId;
   public $surname;
-  public $lastname;
+  public $firstname;
   public $org = array();
   public $address;
   public $other = NULL;
@@ -36,7 +36,7 @@ class archiveModelAuthor
   {
     $this->authorId     = $db_result->author_id;
     $this->surname      = $db_result->surname;
-    $this->lastname     = $db_result->lastname;
+    $this->firstname     = $db_result->firstname;
     $this->org          = $db_result->org;
     $this->address      = $db_result->address;
     $this->other        = $db_result->other;

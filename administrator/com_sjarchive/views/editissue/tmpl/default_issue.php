@@ -164,8 +164,8 @@ $languages = array('ru-RU', 'en-GB');
                     <input type="text" id="surname" name='article[info][<?php echo $art_key ?>][authors][<?php echo $key; ?>][surname][<?php echo $language ?>]' value="<?php echo $author[$language]->surname; ?>">
                   </div>
                   <div class="col-xs-2" style="margin:5px;">
-                    <label for="lastname"><?php echo  JTEXT::_('ARTICULUS.AUTHOR.LASTNAME') ?></label>
-                    <input type="text" id="lastname" name='article[info][<?php echo $art_key ?>][authors][<?php echo $key; ?>][lastname][<?php echo $language ?>]' value="<?php echo $author[$language]->lastname; ?>">
+                    <label for="firstname"><?php echo  JTEXT::_('ARTICULUS.AUTHOR.FIRSTNAME') ?></label>
+                    <input type="text" id="firstname" name='article[info][<?php echo $art_key ?>][authors][<?php echo $key; ?>][firstname][<?php echo $language ?>]' value="<?php echo $author[$language]->firstname; ?>">
                   </div>
                   <div class="col-xs-2" style="float:left; margin:5px;">
                     <label for="org"><?php echo  JTEXT::_('ARTICULUS.AUTHOR.ORG') ?></label>

@@ -170,7 +170,7 @@ class archiveExporterXMLArticulus
             $this->xml->createElement('surname', $author[$language]->surname)
           );
           $individInfo_node->appendChild(
-            $this->xml->createElement('initials', $author[$language]->lastname)
+            $this->xml->createElement('initials', $author[$language]->firstname)
           );
           if (!empty($author[$language]->org)) {
             $individInfo_node->appendChild(

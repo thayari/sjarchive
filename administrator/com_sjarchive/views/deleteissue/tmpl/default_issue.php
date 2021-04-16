@@ -99,11 +99,11 @@ $languages = array('ru-RU','en-GB');
 					<div class="form-group">
 					<?php echo $language ?>
 				
-					<?php $authors_cite .= $author->surname . ',' . $author->lastname . ';' ?>
+					<?php $authors_cite .= $author->surname . ',' . $author->firstname . ';' ?>
 					<label for="surname"><?php echo  JTEXT::_('ARTICULUS.AUTHOR.SURNAME') ?></label>
 						<input id="surname" name='article[info][<?php echo $art_key?>][authors][<?php echo $key;?>][surname][<?php echo $language?>]' class="text-center" value="<?php echo $author[$language]->surname; ?>">
-					<label for="lastname"><?php echo  JTEXT::_('ARTICULUS.AUTHOR.LASTNAME') ?></label>
-						<input id="lastname" name='article[info][<?php echo $art_key?>][authors][<?php echo $key;?>][lastname][<?php echo $language?>]' class="text-center" value="<?php echo $author[$language]->lastname; ?>">
+					<label for="firstname"><?php echo  JTEXT::_('ARTICULUS.AUTHOR.FIRSTNAME') ?></label>
+						<input id="firstname" name='article[info][<?php echo $art_key?>][authors][<?php echo $key;?>][firstname][<?php echo $language?>]' class="text-center" value="<?php echo $author[$language]->firstname; ?>">
 					<label for="org"><?php echo  JTEXT::_('ARTICULUS.AUTHOR.ORG') ?></label>
 						<input style="width:100%" id="org" name='article[info][<?php echo $art_key?>][authors][<?php echo $key;?>][org][<?php echo $language?>]' class="text-center" value="<?php echo $author[$language]->org; ?>">
 						<label for="address"><?php echo  JTEXT::_('ARTICULUS.AUTHOR.ADDRESS') ?></label>

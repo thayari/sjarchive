@@ -233,7 +233,7 @@ class archiveImporterXmlElibrary {
         $space = mb_strpos($item, " ");
 
         $author->surname = mb_substr($item, 0, $space, 'utf-8');
-        $author->lastname = trim(mb_substr($item, $space, strlen($item), 'utf-8'));
+        $author->firstname = trim(mb_substr($item, $space, strlen($item), 'utf-8'));
         // $author->other = $authors[$language]['bionotes'][$key];
   
         $article->authors[$author->position][$language] = $author;

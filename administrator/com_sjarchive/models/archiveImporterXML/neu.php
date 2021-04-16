@@ -275,7 +275,7 @@ class archiveImporterXmlNeu
         if ($language == 'ru-RU') {
           $authorFIO = explode(' ', $authorsRaw['list'][$value]);
 
-          $author->lastname = array_shift($authorFIO);
+          $author->firstname = array_shift($authorFIO);
           
           $author->surname = trim(implode(' ', $authorFIO));
           
@@ -287,7 +287,7 @@ class archiveImporterXmlNeu
           $authorFIO = preg_replace('/\s/', ' ', $authorFIO);
           $authorFIO = explode(' ', $authorFIO);
 
-          $author->lastname = array_pop($authorFIO);
+          $author->firstname = array_pop($authorFIO);
           $author->surname = implode(' ', $authorFIO);
           
           $author->other = trim($authorNameOther[1]);

@@ -67,7 +67,7 @@ class archiveFormIssueImport
             $author = new archiveModelAuthor;
 
             $author->surname = isset($item['surname'][$language]) && !empty($item['surname'][$language]) ? $item['surname'][$language] : NULL;
-            $author->lastname = isset($item['lastname'][$language]) && !empty($item['lastname'][$language]) ? $item['lastname'][$language] : NULL;
+            $author->firstname = isset($item['firstname'][$language]) && !empty($item['firstname'][$language]) ? $item['firstname'][$language] : NULL;
             $author->org = isset($item['org'][$language]) && !empty($item['org'][$language]) ? $item['org'][$language] : NULL;
             $author->address = isset($item['address'][$language]) && !empty($item['address'][$language]) ? $item['address'][$language] : NULL;
             $author->other = isset($item['other'][$language]) && !empty($item['other'][$language]) ? $item['other'][$language] : NULL;

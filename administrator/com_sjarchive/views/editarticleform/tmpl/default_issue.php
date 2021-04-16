@@ -74,13 +74,13 @@ $languages = array('ru-RU','en-GB');
           echo '<label><h2>' . JTEXT::_('ARTICULUS.ARTICLE.AUTHOR') . '</h2></label>';
           foreach ($languages as $language) {
             echo '<div class="form-group">' . $language;
-            // $authors_cite .= $author->surname . ',' . $author->lastname . ';';
+            // $authors_cite .= $author->surname . ',' . $author->firstname . ';';
             // echo '<label for="authorId">ID</label>';
             echo '<input type="hidden" id="authorId" name="article[info][authors][' . $key . '][authorId][' . $language . ']" class="text-center" value="' . $author[$language]->authorId . '">';
             echo '<label for="surname">' . JTEXT::_('ARTICULUS.AUTHOR.SURNAME') . '</label>';
 						echo '<input id="surname" name="article[info][authors][' . $key . '][surname][' . $language . ']" class="text-center" value="' . $author[$language]->surname . '">';
-            echo '<label for="lastname">' . JTEXT::_('ARTICULUS.AUTHOR.LASTNAME') . '</label>';
-						echo '<input id="lastname" name="article[info][authors][' . $key . '][lastname][' . $language . ']" class="text-center" value="' . $author[$language]->lastname . '">';
+            echo '<label for="firstname">' . JTEXT::_('ARTICULUS.AUTHOR.FIRSTNAME') . '</label>';
+						echo '<input id="firstname" name="article[info][authors][' . $key . '][firstname][' . $language . ']" class="text-center" value="' . $author[$language]->firstname . '">';
 					  echo '<label for="org">' . JTEXT::_('ARTICULUS.AUTHOR.ORG') . '</label>';
 						echo '<input style="width:100%" id="org" name="article[info][authors][' . $key . '][org][' . $language . ']" class="text-center" value="' . $author[$language]->org . '">';
 						echo '<label for="address">' . JTEXT::_('ARTICULUS.AUTHOR.ADDRESS') . '</label>';

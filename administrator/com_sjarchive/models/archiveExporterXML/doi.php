@@ -223,9 +223,9 @@ class archiveExporterXMLDoi
                                 $person_name_node->appendChild( $attr );
 
 
-                                if(!empty($author['en-GB']->lastname))
+                                if(!empty($author['en-GB']->firstname))
                                     $person_name_node->appendChild(
-                                        $this->xml->createElement('given_name',$author['en-GB']->lastname));
+                                        $this->xml->createElement('given_name',$author['en-GB']->firstname));
 
                                 $person_name_node->appendChild( $this->xml->createElement('surname',$author['en-GB']->surname));
                             

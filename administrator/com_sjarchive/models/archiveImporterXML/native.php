@@ -358,7 +358,7 @@ class archiveImporterXmlNative
           $str = preg_split('/[\x20\xa0\s]/', $item, -1, PREG_SPLIT_NO_EMPTY);
 
           $author->surname  =  $language == 'ru-RU' ?  trim($str[1]) : trim($str[2]);
-          $author->lastname =  $language == 'ru-RU' ?  trim($str[0]) : trim($str[0]) . ' ' . trim($str[1]);
+          $author->firstname =  $language == 'ru-RU' ?  trim($str[0]) : trim($str[0]) . ' ' . trim($str[1]);
         } else {
           $author->surname = $item;
         }
@@ -409,7 +409,7 @@ class archiveImporterXmlNative
         //Не правильно разбирает язык! Проверить!
         $additional_data = NULL;
 
-        $surname_paceholder = $language == 'ru-RU' ?  $author->surname : $author->lastname . ' ' . $author->surname;
+        $surname_paceholder = $language == 'ru-RU' ?  $author->surname : $author->firstname . ' ' . $author->surname;
 
 
         $additional_data = trim(str_replace(
@@ -428,7 +428,7 @@ class archiveImporterXmlNative
 
 
         $additional_data  = explode($author->surname, $additional_data);
-        $author->lastname = trim($additional_data[0], " \t\n\r\0\x0B");
+        $author->firstname = trim($additional_data[0], " \t\n\r\0\x0B");
 
         $additional_data  = explode(';', $additional_data[1]);
         $author->other    = trim(str_replace(

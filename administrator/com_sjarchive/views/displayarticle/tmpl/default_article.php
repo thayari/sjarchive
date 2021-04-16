@@ -40,7 +40,7 @@ $languages = &$this->languages;
           echo '<li class="author" style="list-style-type: none;">';
           echo '<div><span>' . $language . ': </span>';
           echo '<span class="id"><small>' . $author[$language]->authorId . '</small></span>  ';
-          echo '<span style="font-weight:bold;">' . $author[$language]->surname . ' ' .$author[$language]->lastname . '</span> ';
+          echo '<span style="font-weight:bold;">' . $author[$language]->surname . ' ' .$author[$language]->firstname . '</span> ';
           if (!empty($author[$language]->org)) {
             echo ($author[$language]->org);
           }

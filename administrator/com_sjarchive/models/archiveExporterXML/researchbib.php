@@ -63,7 +63,7 @@ class archiveExporterXMLResearchbib
             foreach ($article->authors as $author)
             {
                 $author_tmp = $author['en-GB']->surname;
-                $author_tmp .= !empty($author['en-GB']->lastname) ? ' '.$author['en-GB']->lastname : NULL;
+                $author_tmp .= !empty($author['en-GB']->firstname) ? ' '.$author['en-GB']->firstname : NULL;
                 
                 $authors_node->appendChild(
                     $this->xml->createElement(  'author',$author_tmp

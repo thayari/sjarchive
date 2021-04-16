@@ -40,7 +40,7 @@ class archiveFormArticleImport
           $author = new archiveModelAuthor;
           $author->authorId = $item['authorId'][$language];
           $author->surname = $item['surname'][$language];
-          $author->lastname = $item['lastname'][$language];
+          $author->firstname = $item['firstname'][$language];
           $author->org = $item['org'][$language];
           $author->address = $item['address'][$language];
           $author->other = $item['other'][$language];

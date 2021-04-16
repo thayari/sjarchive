@@ -65,7 +65,7 @@ $issue = &$this->issue;
 								<span><a style="background: url('/media/com_sjarchive/static/elibrary.png')  5px no-repeat; padding: 0px 20px; background-size:20px;" href="https://elibrary.ru/author_items.asp?authorid=<?php echo $author->spin_code; ?>"></a> </span>
 							<?php endif; ?>
 
-							<span style="font-weight:bold;"><?php echo ($author->surname . ' ' . $author->lastname); ?></span>
+							<span style="font-weight:bold;"><?php echo ($author->surname . ' ' . $author->firstname); ?></span>
 
 
 
@@ -75,10 +75,10 @@ $issue = &$this->issue;
 						</div>
 					</li>
 				<?php endforeach; ?>
-				<?php $document->setMetaData('citation_authors', $author->surname . ' ' . $author->lastname); ?>
+				<?php $document->setMetaData('citation_authors', $author->surname . ' ' . $author->firstname); ?>
 				<?php $document->setMetaData('citation_author_institution', $author->org); ?>
-				<?php $document->setMetaData('eprints.creators_name', $author->surname . ' ' . $author->lastname); ?>
-				<?php $document->setMetaData('dc.creator', $author->surname . ' ' . $author->lastname); ?>
+				<?php $document->setMetaData('eprints.creators_name', $author->surname . ' ' . $author->firstname); ?>
+				<?php $document->setMetaData('dc.creator', $author->surname . ' ' . $author->firstname); ?>
 
 			</ul>
 		</section>

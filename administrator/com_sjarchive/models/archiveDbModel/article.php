@@ -41,7 +41,7 @@ class archiveDbModelArticle  extends JModelLegacy
 		// получает сведения о иетаданных статьи
 		$article->fillMetaFromDb($this->_db->loadObjectList());
 
-		$sql = "SELECT a.author_id, `surname`, `lastname`, `org`, `email`, `address`, `other`, `ORCID`, `scopus_id`, `spin_code`, `wos_id`, `elibrary_id`, `scholar_id`, `language`, `author_position`
+		$sql = "SELECT a.author_id, `surname`, `firstname`, `org`, `email`, `address`, `other`, `ORCID`, `scopus_id`, `spin_code`, `wos_id`, `elibrary_id`, `scholar_id`, `language`, `author_position`
 							FROM #__sjarchive_author a
 							JOIN #__sjarchive_article_author aa 
 							ON aa.author_id = a.author_id
@@ -189,7 +189,7 @@ class archiveDbModelArticle  extends JModelLegacy
 			foreach ($article->authors as  $author) {
 				$sql .= "INSERT INTO #__sjarchive_author (
 										`surname`,
-										`lastname`,
+										`firstname`,
 										`email`,
 										`org`,
 										`address`,
@@ -202,7 +202,7 @@ class archiveDbModelArticle  extends JModelLegacy
 										`elibrary_id`,
 										`scholar_id`)
 							VALUES ({$this->_db->quote($author[$language]->surname)},
-									{$this->_db->quote($author[$language]->lastname)},
+									{$this->_db->quote($author[$language]->firstname)},
 									{$this->_db->quote($author[$language]->email)},
 									{$this->_db->quote($author[$language]->org)},
 									{$this->_db->quote($author[$language]->address)},

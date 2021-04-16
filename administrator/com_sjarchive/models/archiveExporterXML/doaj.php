@@ -107,7 +107,7 @@ class archiveExporterXMLDoaj
                     $author_node = $authors_node->appendChild(
                         $this->xml->createElement('author'));
                     $author_node->appendChild(
-                        $this->xml->createElement('name', $author['en-GB']->lastname  . ' ' .$author['en-GB']->surname ));
+                        $this->xml->createElement('name', $author['en-GB']->firstname  . ' ' .$author['en-GB']->surname ));
                     if(!empty($author['en-GB']->email))
                         $author_node->appendChild(
                             $this->xml->createElement('email', $author['en-GB']->email));

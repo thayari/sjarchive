@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `#__sjarchive_author` ;
 CREATE TABLE IF NOT EXISTS `#__sjarchive_author` (
   `author_id` INT(11) NOT NULL AUTO_INCREMENT,
   `surname` VARCHAR(255) NOT NULL,
-  `lastname` VARCHAR(255) NULL DEFAULT NULL,
+  `firstname` VARCHAR(255) NULL DEFAULT NULL,
   `email` VARCHAR(45) NULL DEFAULT NULL,
   `ORCID` VARCHAR(20) NULL DEFAULT NULL,
   `scopus_id` VARCHAR(11) NULL DEFAULT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `#__sjarchive_author` (
   `elibrary_id` VARCHAR(10) NULL DEFAULT NULL,
   `scholar_id` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`author_id`),
-  UNIQUE INDEX `index2` (`surname`(50) ASC, `lastname`(50) ASC, `email` ASC))
+  UNIQUE INDEX `index2` (`surname`(50) ASC, `firstname`(50) ASC, `email` ASC))
 ENGINE = InnoDB
 AUTO_INCREMENT = 10134
 DEFAULT CHARACTER SET = utf8;

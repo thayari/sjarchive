@@ -27,7 +27,7 @@ class archiveDbModelArticles  extends JModelLegacy
 
 
 
-			$sql = "SELECT a.author_id, `surname`,`lastname`,`org`,`email`,`address`,`other`, `ORCID`, `scopus_id`, `spin_code`, `wos_id`, `elibrary_id`, `scholar_id`, `language`, `author_position`
+			$sql = "SELECT a.author_id, `surname`,`firstname`,`org`,`email`,`address`,`other`, `ORCID`, `scopus_id`, `spin_code`, `wos_id`, `elibrary_id`, `scholar_id`, `language`, `author_position`
               FROM #__sjarchive_author a
               JOIN #__sjarchive_article_author aa 
               ON aa.author_id = a.author_id
@@ -220,7 +220,7 @@ class archiveDbModelArticles  extends JModelLegacy
             if (!$author[$language]->authorId) {
               $sql .= "INSERT INTO #__sjarchive_author (
                 `surname`,
-                `lastname`,
+                `firstname`,
                 `email`,
                 `scopus_id`,
                 `ORCID`,
@@ -229,7 +229,7 @@ class archiveDbModelArticles  extends JModelLegacy
                 `elibrary_id`,
                 `scholar_id`)
               VALUES ({$this->_db->quote($author[$language]->surname)},
-                {$this->_db->quote($author[$language]->lastname)},
+                {$this->_db->quote($author[$language]->firstname)},
                 {$this->_db->quote($author[$language]->email)},
                 {$this->_db->quote($author[$language]->scopusId)},
                 {$this->_db->quote($author[$language]->ORCID)},
@@ -262,7 +262,7 @@ class archiveDbModelArticles  extends JModelLegacy
               $sql .= "INSERT INTO #__sjarchive_author ( 
                       `author_id`,
                       `surname`,
-                      `lastname`,
+                      `firstname`,
                       `email`,
                       `scopus_id`,
                       `ORCID`,
@@ -273,7 +273,7 @@ class archiveDbModelArticles  extends JModelLegacy
                       VALUES (
                         {$this->_db->quote($author[$language]->authorId)},
                         {$this->_db->quote($author[$language]->surname)},
-                        {$this->_db->quote($author[$language]->lastname)},
+                        {$this->_db->quote($author[$language]->firstname)},
                         {$this->_db->quote($author[$language]->email)},
                         {$this->_db->quote($author[$language]->scopusId)},
                         {$this->_db->quote($author[$language]->ORCID)},
@@ -284,7 +284,7 @@ class archiveDbModelArticles  extends JModelLegacy
                         )
                       ON DUPLICATE KEY UPDATE author_id = {$this->_db->quote($author[$language]->authorId)},
                         surname = {$this->_db->quote($author[$language]->surname)},
-                        lastname = {$this->_db->quote($author[$language]->lastname)},
+                        firstname = {$this->_db->quote($author[$language]->firstname)},
                         email = {$this->_db->quote($author[$language]->email)},
                         scopus_id = {$this->_db->quote($author[$language]->scopusId)},
                         ORCID = {$this->_db->quote($author[$language]->ORCID)},

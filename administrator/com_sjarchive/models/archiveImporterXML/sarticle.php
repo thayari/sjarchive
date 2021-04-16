@@ -146,7 +146,7 @@ class archiveImporterXMLSarticle
 					
 					$author->position	= (int)	   array_shift($node2->xpath("@num"));
 					$author->surname	= (string) array_shift($node2->xpath("individInfo [@lang='{$language}']/surname"));
-					$author->lastname	= (string) array_shift($node2->xpath("individInfo[@lang='{$language}']/fname"));
+					$author->firstname	= (string) array_shift($node2->xpath("individInfo[@lang='{$language}']/fname"));
 					$author->email	= (string) array_shift($node2->xpath("individInfo[@lang='{$language}']/auemail"));
 					$author->org	= (string) array_shift($node2->xpath("individInfo[@lang='{$language}']/auwork"));
 					$author->address	= (string) array_shift($node2->xpath("individInfo[@lang='{$language}']/auadr"));

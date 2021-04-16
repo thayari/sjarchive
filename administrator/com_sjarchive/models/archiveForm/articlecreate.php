@@ -36,7 +36,7 @@ class archiveFormArticleCreate
 
           $author->authorId = $raw_author['authorId'][$language];
 					$author->surname = $raw_author['surname'][$language];
-					$author->lastname = $raw_author['lastname'][$language];
+					$author->firstname = $raw_author['firstname'][$language];
 					$author->org = $raw_author['org'][$language];
 					$author->wosId = $raw_author['wosId'][$language];
 					$author->spinCode = $raw_author['spinCode'][$language];
