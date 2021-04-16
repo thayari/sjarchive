@@ -24,6 +24,7 @@ $languages = &$this->languages;
 
 <article role="item">
   <section class="title" style="margin:10px 0px">
+
     <h4>
       <?php foreach ($languages as $language) : ?>
         <p><span><?php echo $language . ': ' ?></span>
@@ -54,6 +55,12 @@ $languages = &$this->languages;
           }
           if (!empty($author[$language]->ORCID)) {
             echo ', <span>' . JTEXT::_('ARTICULUS.ARTICLE.AUTHOR.ORCID') . ': ' . $author[$language]->ORCID . '</span> ';
+          }
+          if (!empty($author[$language]->elibraryID)) {
+            echo ', <span>' . JTEXT::_('ARTICULUS.ARTICLE.AUTHOR.ELIBRARYID') . ': ' . $author[$language]->elibraryID . '</span> ';
+          }
+          if (!empty($author[$language]->scholarID)) {
+            echo ', <span>' . JTEXT::_('ARTICULUS.ARTICLE.AUTHOR.SCHOLARID') . ': ' . $author[$language]->scholarID . '</span> ';
           }
         }
       }

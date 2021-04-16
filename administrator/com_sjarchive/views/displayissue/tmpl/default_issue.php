@@ -56,6 +56,7 @@ if ($lang->getTag() == 'ru-RU') {
 <td>	
 			<section class="authors">
 			<? if(isset($article->authors)) {
+
 		    echo '<ul style="margin:0">';
 
           foreach ($article->authors as $author) {
@@ -80,6 +81,12 @@ if ($lang->getTag() == 'ru-RU') {
               if (!empty($author[$language]->ORCID)) {
                 echo ', <span>' . JTEXT::_('ARTICULUS.ARTICLE.AUTHOR.ORCID') . ': ' . $author[$language]->ORCID . '</span> ';
               }
+							if (!empty($author[$language]->elibraryID)) {
+								echo ', <span>' . JTEXT::_('ARTICULUS.ARTICLE.AUTHOR.ELIBRARYID') . ': ' . $author[$language]->elibraryID . '</span> ';
+							}
+							if (!empty($author[$language]->scholarID)) {
+								echo ', <span>' . JTEXT::_('ARTICULUS.ARTICLE.AUTHOR.SCHOLARID') . ': ' . $author[$language]->scholarID . '</span> ';
+							}
             }
           }
         } ?>

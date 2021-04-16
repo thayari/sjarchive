@@ -28,7 +28,7 @@ class archiveModelArticlesDb extends JModelLegacy
 
 	protected function selectArticleAuthors ($article_id,$language='ru-RU')
 	{
-		$sql = "SELECT `surname`,`lastname`,`org`,`email`,`address`,`other`, `ORCID`, `scopus_id`,`wos_id`,`spin_code`
+		$sql = "SELECT `surname`,`lastname`,`org`,`email`,`address`,`other`, `ORCID`, `scopus_id`,`wos_id`,`spin_code`, `elibrary_id`, `scholar_id`
 		FROM #__sjarchive_author a
 		JOIN #__sjarchive_article_author aa 
 		ON aa.author_id = a.author_id

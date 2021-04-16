@@ -157,6 +157,8 @@ class archiveImporterXMLArticulus
 					$author->ORCID = NULL;
 					$author->wosID = NULL;
 					$author->spinCode = NULL;
+					$author->elibraryID = NULL;
+					$author->scholarID = NULL;
 					$article->authors[$author->position][$language_tag] = $author;
 				}
 				

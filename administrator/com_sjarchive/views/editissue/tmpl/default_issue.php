@@ -204,6 +204,14 @@ $languages = array('ru-RU', 'en-GB');
                 <label><?php echo  JTEXT::_('ARTICULUS.AUTHOR.ORCID') ?></label>
                 <input type="text" name='article[info][<?php echo $art_key ?>][authors][<?php echo $key; ?>][ORCID][<?php echo $language ?>]' value="<?php echo $author[$language]->ORCID; ?>">
               </div>
+              <div class="col-xs-2" style="float:left; margin:5px">
+                <label><?php echo  JTEXT::_('ARTICULUS.AUTHOR.ELIBRARYID') ?></label>
+                <input type="text" name='article[info][<?php echo $art_key ?>][authors][<?php echo $key; ?>][elibraryID][<?php echo $language ?>]' value="<?php echo $author[$language]->elibraryID; ?>">
+              </div>
+              <div class="col-xs-2" style="float:left; margin:5px">
+                <label><?php echo  JTEXT::_('ARTICULUS.AUTHOR.SCHOLARID') ?></label>
+                <input type="text" name='article[info][<?php echo $art_key ?>][authors][<?php echo $key; ?>][scholarID][<?php echo $language ?>]' value="<?php echo $author[$language]->scholarID; ?>">
+              </div>
             </div>
             <?php endforeach; ?>
 

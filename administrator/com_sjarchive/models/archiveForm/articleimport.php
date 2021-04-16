@@ -48,7 +48,9 @@ class archiveFormArticleImport
           $author->scopusId = $item['scopusId'][$language];
           $author->wosId = $item['wosId'][$language];
           $author->ORCID = $item['ORCID'][$language];
-          $author->spinCod = $item['spinCode'][$language];
+          $author->spinCode = $item['spinCode'][$language];
+          $author->elibraryID = $item['elibraryID'][$language];
+					$author->scholarID = $item['scholarID'][$language];
           $author->position = $key;
           $article->authors[$key][$language] = $author;
         }

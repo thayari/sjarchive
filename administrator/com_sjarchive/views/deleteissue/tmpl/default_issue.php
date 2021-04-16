@@ -122,6 +122,10 @@ $languages = array('ru-RU','en-GB');
 					<input name='article[info][<?php echo $art_key?>][authors][<?php echo $key;?>][spinCode][<?php echo $language?>]' class="text-center" value="<?php echo $author[$language]->spinCode; ?>">
 				<?php echo  JTEXT::_('ARTICULUS.AUTHOR.ORCID') ?></label>
 					<input name='article[info][<?php echo $art_key?>][authors][<?php echo $key;?>][ORCID][<?php echo $language?>]' class="text-center" value="<?php echo $author[$language]->ORCID; ?>">
+				<?php echo  JTEXT::_('ARTICULUS.AUTHOR.ELIBRARYID') ?></label>
+					<input name='article[info][<?php echo $art_key?>][authors][<?php echo $key;?>][elibraryID][<?php echo $language?>]' class="text-center" value="<?php echo $author[$language]->elibraryID; ?>">
+				<?php echo  JTEXT::_('ARTICULUS.AUTHOR.SCHOLARID') ?></label>
+					<input name='article[info][<?php echo $art_key?>][authors][<?php echo $key;?>][scholarID][<?php echo $language?>]' class="text-center" value="<?php echo $author[$language]->scholarID; ?>">
 			</div>
 			<?php endforeach; ?>		
 			<?php endif; ?>

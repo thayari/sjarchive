@@ -69,7 +69,7 @@ class archiveImporterXmlNeu
 
   public function importIssue($doi_settings = array('core' => '10.22227', 'issn' => '2073-8412', 'useNum' => '1', 'x' => 0, 'useVolume' => 0, 'useYear' => 1, 'useDoi' => 1))
   {
-    $article_doi_xpath = $this->xml->xpath('//*[contains(@class,"abstract-en") and contains(.,"Для цитирования")]');
+    $article_doi_xpath = $this->xml->xpath('//*[(contains(@class,"abstract-en") and contains(.,"For citation")) or contains(@class,"citation-en")]');
     $article_doi = trim((string) array_shift($article_doi_xpath));
     $article_doi = str_replace(' ', '', explode('DOI:', $article_doi)[1]);
     $data = explode('.', $article_doi);
@@ -139,14 +139,14 @@ class archiveImporterXmlNeu
     );
     $element_path = array(
       'udk' => '//*[contains(@class,"UDK")]',
-      'doi' => '//*[contains(@class,"abstract-en") and contains(.,"Для цитирования")]',
+      'doi' => '//*[(contains(@class,"abstract-en") and contains(.,"For citation")) or contains(@class,"citation-en")]',
       'abstract' => array(
         'ru-RU' => '//*[contains(@class,"abstract-ru") and not(contains(.,"Ключевые слова"))]',
         'en-GB' => '//*[contains(@class,"abstract-en") and not(contains(.,"Keywords")) and not(contains(.,"@")) and not(contains(.,"For citation")) and not(contains(.,"Для цитирования"))]'
       ), 
       'title' => array(
         'ru-RU' => '//*[contains(@class,"title-ru")]',
-        'en-GB' => '//*[contains(@class,"subhead-en")]',
+        'en-GB' => '//*[contains(@class,"subhead-en") or contains(@class,"title-en")]',
       ),
       'section' => array(
         'ru-RU' => NULL,
@@ -165,8 +165,8 @@ class archiveImporterXmlNeu
         'en-GB' => '//*[contains(@class,"lit-en")]'
       ),
       'cite' => array(
-        'ru-RU' => '//*[contains(@class,"abstract-en") and contains(.,"Для цитирования")]',
-        'en-GB' => '//*[contains(@class,"abstract-en") and contains(.,"For citation")]',
+        'ru-RU' => '//*[(contains(@class,"abstract-en") and contains(.,"Для цитирования")) or contains(@class,"citation-ru")]',
+        'en-GB' => '//*[(contains(@class,"abstract-en") and contains(.,"For citation")) or contains(@class,"citation-en")]',
       ),
       'submitedDate' => NULL,
       'editedDate' => NULL,
@@ -180,7 +180,7 @@ class archiveImporterXmlNeu
         'en-GB' =>
         array(
           'list' => NULL,
-          'info' => '//*[contains(@class,"abstract-en") and contains(.,"@")]',
+          'info' => '//*[(contains(@class,"abstract-en") and contains(.,"@")) or contains(@class, "author-info-en")]',
         )
       )
     );
@@ -305,11 +305,17 @@ class archiveImporterXmlNeu
           if (strpos($value, 'Researcher')) {
             $author->wosID = trim(str_replace(array('WoS Researcher ID:', 'ResearcherID:'), '', $value));
           }
-          if (preg_match('/(RISC)|(SPIN)|(РИНЦ)/', $value)) {
-            $author->spinCode = trim(str_replace(array('RISC Author ID:', 'RISC ID:', 'ID RISC:', 'SPIN-code:', 'РИНЦ ID:', 'SPIN-код:'), '', $value));
+          if (preg_match('/(RISC)|(РИНЦ)/', $value)) {
+            $author->elibraryID = trim(str_replace(array('RISC Author ID:', 'RISC ID:', 'ID RISC:', 'РИНЦ ID:'), '', $value));
+          }
+          if (strpos($value, 'SPIN')) {
+            $author->spinCode = trim(str_replace(array('SPIN-code:', 'SPIN-код:'), '', $value));
           }
           if (strpos($value, 'ORCID')) {
             $author->ORCID = trim(str_replace(array('ORCID:'), '', $value));
+          }
+          if (strpos($value, 'Scholar')) {
+            $author->scholarID = trim(str_replace(array('Google Scholar:'), '', $value));
           }
           if (strpos($value, '@')) {
             $author->email = $value;

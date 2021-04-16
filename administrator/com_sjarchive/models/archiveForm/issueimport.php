@@ -76,6 +76,8 @@ class archiveFormIssueImport
             $author->wosId = isset($item['wosId'][$language]) && !empty($item['wosId'][$language]) ? $item['wosId'][$language] : NULL;
             $author->ORCID = isset($item['ORCID'][$language]) && !empty($item['ORCID'][$language]) ? $item['ORCID'][$language] : NULL;
             $author->spinCode = isset($item['spinCode'][$language]) && !empty($item['spinCode'][$language]) ? $item['spinCode'][$language] : NULL;
+            $author->elibraryID = isset($item['elibraryID'][$language]) && !empty($item['elibraryID'][$language]) ? $item['elibraryID'][$language] : NULL;
+            $author->scholarID = isset($item['scholarID'][$language]) && !empty($item['scholarID'][$language]) ? $item['scholarID'][$language] : NULL;
             $author->position = $key;
             $author->language = $language;
             $article->authors[$key][$language] = $author;

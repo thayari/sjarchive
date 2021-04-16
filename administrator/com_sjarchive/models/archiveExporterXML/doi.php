@@ -209,7 +209,7 @@ class archiveExporterXMLDoi
                                 $controrganization_nodeinutor_org = NULL;*/
 								
 								$person_name_node =  $this->xml->createElement('person_name');
-                               
+                                
                                 $attr =  $this->xml->createAttribute('contributor_role');
                                 $attr->value = 'author';
                                 $person_name_node->appendChild( $attr );

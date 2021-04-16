@@ -87,6 +87,8 @@ CREATE TABLE IF NOT EXISTS `#__sjarchive_author` (
   `scopus_id` VARCHAR(11) NULL DEFAULT NULL,
   `spin_code` VARCHAR(15) NULL DEFAULT NULL,
   `wos_id` VARCHAR(15) NULL DEFAULT NULL,
+  `elibrary_id` VARCHAR(10) NULL DEFAULT NULL,
+  `scholar_id` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`author_id`),
   UNIQUE INDEX `index2` (`surname`(50) ASC, `lastname`(50) ASC, `email` ASC))
 ENGINE = InnoDB

@@ -27,6 +27,8 @@ class archiveModelAuthor
   public $ORCID = NULL;
   public $wosId = NULL;
   public $spinCode = NULL;
+  public $elibraryID = NULL;
+  public $scholarID = NULL;
   public $position;
   public $language;
 
@@ -43,6 +45,8 @@ class archiveModelAuthor
     $this->ORCID        = $db_result->ORCID;
     $this->wosId        = $db_result->wos_id;
     $this->spinCode     = $db_result->spin_code;
+    $this->elibraryID   = $db_result->elibrary_id;
+    $this->scholarID    = $db_result->scholar_id;
     $this->position     = $db_result->author_position;
     $this->language     = $db_result->language;
   }

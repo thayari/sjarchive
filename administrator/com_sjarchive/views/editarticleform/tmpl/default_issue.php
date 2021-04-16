@@ -98,6 +98,10 @@ $languages = array('ru-RU','en-GB');
 					echo '<input name="article[info][authors][' . $key . '][spinCode][<' . $language . ']" class="text-center" value="' . $author[$language]->spinCode . '">';
 				  echo '<label>' . JTEXT::_('ARTICULUS.AUTHOR.ORCID') . '</label>';
 					echo '<input name="article[info][authors][' . $key . '][ORCID][<' . $language . ']" class="text-center" value="' . $author[$language]->ORCID . '">';
+					echo '<label>' . JTEXT::_('ARTICULUS.AUTHOR.ELIBRARYID') . '</label>';
+					echo '<input name="article[info][authors][' . $key . '][elibraryID][<' . $language . ']" class="text-center" value="' . $author[$language]->elibraryID . '">';
+					echo '<label>' . JTEXT::_('ARTICULUS.AUTHOR.SCHOLARID') . '</label>';
+					echo '<input name="article[info][authors][' . $key . '][scholarID][<' . $language . ']" class="text-center" value="' . $author[$language]->scholarID . '">';
         }
       }
     ?>

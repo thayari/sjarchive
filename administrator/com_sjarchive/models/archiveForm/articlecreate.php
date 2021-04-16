@@ -42,6 +42,8 @@ class archiveFormArticleCreate
 					$author->spinCode = $raw_author['spinCode'][$language];
 					$author->scopusId = $raw_author['scopusId'][$language];
 					$author->ORCID = $raw_author['ORCID'][$language];
+					$author->elibraryID = $raw_author['elibraryID'][$language];
+					$author->scholarID = $raw_author['scholarID'][$language];
 					$author->position = $position;
 					$article->authors[$position][$language] = $author;
 				}

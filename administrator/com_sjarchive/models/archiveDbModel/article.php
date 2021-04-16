@@ -41,7 +41,7 @@ class archiveDbModelArticle  extends JModelLegacy
 		// получает сведения о иетаданных статьи
 		$article->fillMetaFromDb($this->_db->loadObjectList());
 
-		$sql = "SELECT a.author_id, `surname`, `lastname`, `org`, `email`, `address`, `other`, `ORCID`, `scopus_id`, `spin_code`, `wos_id`, `language`, `author_position`
+		$sql = "SELECT a.author_id, `surname`, `lastname`, `org`, `email`, `address`, `other`, `ORCID`, `scopus_id`, `spin_code`, `wos_id`, `elibrary_id`, `scholar_id`, `language`, `author_position`
 							FROM #__sjarchive_author a
 							JOIN #__sjarchive_article_author aa 
 							ON aa.author_id = a.author_id
@@ -198,7 +198,9 @@ class archiveDbModelArticle  extends JModelLegacy
 										`scopus_id`,
 										`ORCID`,
 										`spin_code`,
-										`wos_id`)
+										`wos_id`,
+										`elibrary_id`,
+										`scholar_id`)
 							VALUES ({$this->_db->quote($author[$language]->surname)},
 									{$this->_db->quote($author[$language]->lastname)},
 									{$this->_db->quote($author[$language]->email)},
@@ -208,7 +210,9 @@ class archiveDbModelArticle  extends JModelLegacy
 									{$this->_db->quote($author[$language]->scopusId)},
 									{$this->_db->quote($author[$language]->ORCID)},
 									{$this->_db->quote($author[$language]->spinCode)},								
-									{$this->_db->quote($author[$language]->wosID)}
+									{$this->_db->quote($author[$language]->wosID)},
+									{$this->_db->quote($author[$language]->elibraryID)},
+									{$this->_db->quote($author[$language]->scholarID)}
 									)
 							ON DUPLICATE KEY UPDATE 
 									`author_id` 	= LAST_INSERT_ID(author_id) ,
@@ -217,8 +221,10 @@ class archiveDbModelArticle  extends JModelLegacy
 									`language`	= {$this->_db->quote($language)},
 									`scopus_id`	= {$this->_db->quote($author[$language]->scopusId)},
 									`orcid` 		= {$this->_db->quote($author[$language]->ORCID)},
-									`spin_code` 	= {$this->_db->quote($author[$language]->spinCode)},
-									`wos_id` 		= {$this->_db->quote($author[$language]->wosID)}
+									`spin_code` = {$this->_db->quote($author[$language]->spinCode)},
+									`wos_id` 		= {$this->_db->quote($author[$language]->wosID)},
+									`elibrary_id`= {$this->_db->quote($author[$language]->elibraryID)},
+									`scholar_id`= {$this->_db->quote($author[$language]->scholarID)}
 									;
 							INSERT IGNORE INTO #__sjarchive_article_author (`article_id`,`author_id`,`author_position`,`other`)
 							VALUES (@article_id,LAST_INSERT_ID(),{$this->_db->quote($author[$language]->position)},{{$this->_db->quote($author[$language]->other)},}); ";
