@@ -88,7 +88,7 @@ class archiveImporterXmlNeu
     $this->_item['issue']->content        = NULL;
     $this->_item['issue']->pdf            = NULL;
     $this->_item['issue']->createdDate      = date('Y-m-d H:i:s');
-    $this->_item['issue']->doi          = $article_doi;
+    $this->_item['issue']->doi          = implode('.', array_slice($data, 0, 4));
 
     return $this->_item['issue'];
   }
@@ -299,25 +299,25 @@ class archiveImporterXmlNeu
         
         foreach ($temp as $key => $value) {
           $value = trim($value);
-          if (strpos($value, 'Scopus')) {
+          if (is_int(strpos($value, 'Scopus'))) {
             $author->scopusId = trim(str_replace(array('Scopus Author ID:', 'Scopus:'), '', $value));
           }
-          if (strpos($value, 'Researcher')) {
+          if (is_int(strpos($value, 'Researcher'))) {
             $author->wosID = trim(str_replace(array('WoS Researcher ID:', 'ResearcherID:'), '', $value));
           }
           if (preg_match('/(RISC)|(РИНЦ)/', $value)) {
             $author->elibraryID = trim(str_replace(array('RISC Author ID:', 'RISC ID:', 'ID RISC:', 'РИНЦ ID:'), '', $value));
           }
-          if (strpos($value, 'SPIN')) {
+          if (is_int(strpos($value, 'SPIN'))) {
             $author->spinCode = trim(str_replace(array('SPIN-code:', 'SPIN-код:'), '', $value));
           }
-          if (strpos($value, 'ORCID')) {
+          if (is_int(strpos($value, 'ORCID'))) {
             $author->ORCID = trim(str_replace(array('ORCID:'), '', $value));
           }
-          if (strpos($value, 'Scholar')) {
+          if (is_int(strpos($value, 'Scholar'))) {
             $author->scholarID = trim(str_replace(array('Google Scholar:'), '', $value));
           }
-          if (strpos($value, '@')) {
+          if (is_int(strpos($value, '@'))) {
             $author->email = $value;
           }
         }
