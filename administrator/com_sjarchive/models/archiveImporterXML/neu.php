@@ -56,7 +56,7 @@ class archiveImporterXmlNeu
 
       $html = new DOMDocument('1.0', 'utf-8');
 
-      $html->loadHtmlFile($file);
+      $html->loadHtmlFile(mb_convert_encoding($file, 'HTML-ENTITIES', 'UTF-8'));
 
       $this->xml = simplexml_import_dom($html);
     } else {
@@ -213,10 +213,11 @@ class archiveImporterXmlNeu
     foreach ($languages as $language) {
 
       $article->title[$language]    = trim((string) array_shift($this->xml->xpath($element_path['title'][$language])));
+      $abstract = implode('<br>', $this->xml->xpath($element_path['abstract'][$language]));
 
-      foreach ($this->xml->xpath($element_path['abstract'][$language]) as $abstract) {
-        $article->abstract[$language] = trim((string)$abstract);
-      }
+      // echo '<pre>'; var_dump($abstract); die();
+
+      $article->abstract[$language] = $abstract; 
 
       $fulltext_xpath = $this->xml->xpath($element_path['text'][$language]);
 
@@ -275,9 +276,10 @@ class archiveImporterXmlNeu
         if ($language == 'ru-RU') {
           $authorFIO = explode(' ', $authorsRaw['list'][$value]);
 
-          $author->firstname = array_shift($authorFIO);
+          // в русском фамилия первым словом
+          $author->surname = array_shift($authorFIO);
           
-          $author->surname = trim(implode(' ', $authorFIO));
+          $author->firstname = trim(implode(' ', $authorFIO));
           
           $author->other = trim($temp[0]);
 
@@ -287,8 +289,9 @@ class archiveImporterXmlNeu
           $authorFIO = preg_replace('/\s/', ' ', $authorFIO);
           $authorFIO = explode(' ', $authorFIO);
 
-          $author->firstname = array_pop($authorFIO);
-          $author->surname = implode(' ', $authorFIO);
+          // в английском фамилия последним словом
+          $author->surname = array_pop($authorFIO);
+          $author->firstname = implode(' ', $authorFIO);
           
           $author->other = trim($authorNameOther[1]);
         }
